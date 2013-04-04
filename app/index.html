@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Side nav prototype 0.528</title>
+    <link rel="stylesheet" href="build/styles/main.css" media="screen">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+<div class="viewport"></div>
+<script type="text/x-handlebars" data-template-name="application">
+    {{outlet}}
+</script>
+<script type="text/x-handlebars" data-template-name="index">
+    <div class='about'>
+        This originally was created for a <a href="http://eviltrout.com/2013/03/23/ember-without-data.html">tutorial on
+        Ember.js</a> by @eviltrout and adapted to use RequireJS.
+
+    </div>
+
+    <h2>Links from /r/aww</h2>
+    <ul>
+        {{#each link in content}}
+        <li>
+            {{#if link.thumbnailUrl}}
+            <img {{bindAttr src="link.thumbnailUrl"}}>
+            {{/if}}
+            <a {{bindAttr href="link.url"}} target="_blank">{{link.title}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<script type="text/javascript" src="build/scripts/main.js"></script>
+</body>
+</html>
